@@ -12,11 +12,11 @@ namespace Calculapdora
 {
     public partial class frmCalculadora : Form
     {
-        bool ponto = false;
-        bool operador = false;
-        int tamText2 = 0;
-        double acumulador = 0;
-        int sinal = 4;
+        bool ponto = false; //informa se o (,) ponto já foi digitado.
+        bool operador = false; //informa se alguma operação foi iniciada.
+        int tamText2 = 0; //guarda o tamanho do TextBox
+        double acumulador = 0; //guarda o resultado das operações.
+        int sinal = 4; //informa qual operação foi acionada.
 
         public frmCalculadora()
         {
@@ -29,7 +29,7 @@ namespace Calculapdora
             {
                 txtVisor.Clear();
                 operador = false;
-                txtVisor.Text += "1";
+                txtVisor.Text += "0";
             }
             else
             {
@@ -324,6 +324,7 @@ namespace Calculapdora
             }
         }
 
+        //quando pressionado o Button (=) igual, é calculado a operação que coresponde ao sinal.
         private void BtnIgual_Click(object sender, EventArgs e)
         { 
                 switch (sinal)
@@ -391,6 +392,7 @@ namespace Calculapdora
             
         }
 
+        //limpa o TextBox para inserção de um novo valor sem alterar o calculo.
         private void BtnClear_Click(object sender, EventArgs e)
         {
                 txtVisor.Clear();
@@ -398,6 +400,7 @@ namespace Calculapdora
            
         }
 
+        //button Esc, reinicializa o formulario, limpa os TextBox, zera o acumulador e da espaço para nova inserção de valores.
         private void Button1_Click(object sender, EventArgs e)
         {
             txtVisor.Clear();
